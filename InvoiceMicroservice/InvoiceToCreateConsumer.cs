@@ -20,6 +20,7 @@ public class InvoiceToCreateConsumer : IConsumer<InvoiceToCreate>
     {
         await context.Publish<InvoiceCreated>(new InvoiceCreated()
         {
+            MessageId = Guid.NewGuid(),
             InvoiceNumber = invoiceNumber,
             InvoiceData = new InvoiceToCreate()
             {
